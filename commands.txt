@@ -1,0 +1,20 @@
+# 安装多个依赖
+cnpm install express jade moment mongoose
+
+# 将bower安装到全局环境，可直接使用该命令
+cnpm install bower -g
+
+# boostrap
+bower install bootstrap
+
+# 由于express的版本问题需要安装body-parser
+cnpm install body-parser
+
+# 安装underscore: _
+cnpm install underscore
+
+# 生成bower.json
+bower init
+
+# 生成package.json
+cnpm init
