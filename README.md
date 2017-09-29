@@ -1,6 +1,7 @@
 # 慕课网node-mongo建站攻略（一期）学习
 
 所需命令在command.txt
+二期代码在advanced分支下面
 
 运行项目
 1. git clone https://github.com/ZCorners/node-imooc.git
