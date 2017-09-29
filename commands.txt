@@ -18,3 +18,24 @@ bower init
 
 # 生成package.json
 cnpm init
+
+# 安装grunt
+cnpm install grunt -g
+cnpm install grunt-cli -g
+
+grunt-contrib-watch监听文件增删改，重新执行任务
+grunt-nodemon实时监听app.js
+grunt-concurrent监控慢任务SASS LESS 等
+
+cnpm install bcrypt --save
+
+cnpm install cookie-parser --save
+cnpm install express-session --save
+
+cnpm install connect-mongo --save
+
+cnpm install connect-multiparty --save
+cnpm install grunt-mocha-test --save
+cnpm install should --save
+cnpm install mocha --save
+

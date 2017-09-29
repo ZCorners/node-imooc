@@ -1,14 +1,16 @@
 var mongoose = require('mongoose')
+var Schema = mongoose.Schema
+var ObjectId = Schema.Types.ObjectId
 
-var MovieScheme = new mongoose.Schema({
-    director: String,
-    title: String,
-    language: String,
-    country: String,
-    summary: String,
-    flash: String,
-    poster: String,
-    year: Number,
+var CommentScheme = new Schema({
+    movie: {type: ObjectId, ref: 'Movie'},
+    from: {type: ObjectId, ref: 'User'},
+    reply: [{
+        from: {type: ObjectId, ref: 'User'},
+        to: {type: ObjectId, ref: 'User'},
+        content: String
+    }],
+    content: String,
     meta: {
         createAt: {
             type: Date,
@@ -22,7 +24,7 @@ var MovieScheme = new mongoose.Schema({
     // __v: mongoose默认还会生成该字段，在第一次生成该文档时mongoose会生成该versionKey
 })
 
-MovieScheme.pre('save', function (next) {
+CommentScheme.pre('save', function (next) {
     if (this.isNew) {
         this.meta.createAt = this.meta.updateAt = Date.now()
     } else {
@@ -31,7 +33,7 @@ MovieScheme.pre('save', function (next) {
     next()
 })
 
-MovieScheme.statics = {
+CommentScheme.statics = {
     fetch: function (cb) {
         return this.find({})
             .sort('meta.updateAt')
@@ -43,4 +45,4 @@ MovieScheme.statics = {
     }
 }
 
-module.exports = MovieScheme
+module.exports = CommentScheme
